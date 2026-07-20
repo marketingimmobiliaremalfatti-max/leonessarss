@@ -12,7 +12,7 @@ Stessa architettura dello scraper Malfatti:
 - esclude negozi/uffici/magazzini/capannoni/terreni/box-cantina/affitti
 - genera la descrizione narrativa con Claude (una volta per annuncio)
 - compone la foto nel template brandizzato
-- gestisce un ciclo di ripubblicazione (1 annuncio al giorno, poi ricomincia)
+- gestisce una rotazione giornaliera di ripubblicazione (1 annuncio al giorno)
 """
 
 import json
@@ -495,7 +495,7 @@ def main():
     print(f"Funnel configurati: {len(funnels)}")
     now_iso = datetime.now(timezone.utc).isoformat()
 
-    listings_with_dates = []
+    listings_by_id = {}
     seen_ids = set()
 
     print("== Estrazione dettagli annunci ==")
@@ -517,6 +517,14 @@ def main():
             continue
 
         listing_id = data["id"]
+
+        if listing_id in seen_ids:
+            # Lo stesso annuncio è stato trovato con un URL leggermente
+            # diverso (es. con/senza barra finale) durante la scoperta:
+            # lo saltiamo per evitare un duplicato nel feed.
+            print(f"  [DUPLICATO] {data['title']} ({url}) -- stesso annuncio già raccolto, salto")
+            continue
+
         seen_ids.add(listing_id)
         previous = state.get(listing_id, {})
 
@@ -551,14 +559,16 @@ def main():
             "narrative": narrative,
         }
 
-        listings_with_dates.append({
+        listings_by_id[listing_id] = {
             **data,
             "image": image_for_feed,
             "first_seen": first_seen,
             "last_published_at": last_published_at,
             "refresh_count": refresh_count,
             "caption": caption,
-        })
+        }
+
+    listings_with_dates = list(listings_by_id.values())
 
     removed = set(state.keys()) - seen_ids
     for rid in removed:
