@@ -342,9 +342,20 @@ def compose_branded_image(photo_url, listing_id):
         return None
 
     try:
-        resp = requests.get(photo_url, headers=HEADERS, timeout=20)
-        resp.raise_for_status()
-        photo = Image.open(BytesIO(resp.content)).convert("RGB")
+        photo_bytes = None
+        last_error = None
+        for attempt in range(3):
+            try:
+                resp = requests.get(photo_url, headers=HEADERS, timeout=20)
+                resp.raise_for_status()
+                photo_bytes = resp.content
+                break
+            except Exception as e:
+                last_error = e
+                time.sleep(2)
+        if photo_bytes is None:
+            raise last_error or RuntimeError("download fallito")
+        photo = Image.open(BytesIO(photo_bytes)).convert("RGB")
     except Exception as e:
         print(f"  [!] Errore scaricando la foto per il template ({listing_id}): {e}", file=sys.stderr)
         return None
