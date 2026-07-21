@@ -2,10 +2,11 @@ name: Aggiorna feed RSS Immobiliare Leonessa
 
 on:
   schedule:
-    # Ogni giorno alle 6:00 UTC. Necessario che giri OGNI GIORNO: la
-    # rotazione giornaliera (che garantisce sempre un contenuto "nuovo"
-    # per Postpikr) avanza di uno step per ogni giorno di calendario.
-    - cron: "0 6 * * *"
+    # Ogni giorno alle 8:00 UTC (10:00 ora italiana in estate, 9:00 in inverno).
+    # Necessario che giri OGNI GIORNO: la rotazione giornaliera (che garantisce
+    # sempre un contenuto "nuovo" per Postpikr) avanza di uno step per ogni
+    # giorno di calendario.
+    - cron: "0 8 * * *"
   workflow_dispatch: {} # permette di far partire il workflow manualmente da GitHub
 
 permissions:
