@@ -1,14 +1,11 @@
 {
   "order": [
-    "appartamento-in-frazione-sala-60",
     "appartamento-in-frazione-villa-bigioni",
     "appartamento-in-frazione-villa-cordeschi-50",
     "appartamento-in-frazione-villa-pulcini-80",
     "appartamento-in-frazione-volciano",
     "appartamento-in-vendita-a-leonessa-centro-storico2",
-    "appartamento-in-vendita-a-leonessa-i-sambuchi",
     "appartamento-in-vendita-a-leonessa-le-fonti",
-    "appartamento-in-vendita-a-leonessa-panorama",
     "appartamento-in-vendita-a-leonessa-panorama1",
     "appartamento-in-vendita-a-leonessa-residence-belvedere",
     "appartamento-in-vendita-a-leonessa-residence-belvedere-100",
@@ -23,12 +20,12 @@
     "indipendente-in-frazione-viesci-90",
     "indipendente-in-frazione-villacolapietro-di-leonessa-2",
     "indipendente-in-vendita-a-leonessa-centostorico",
-    "monolocale-in-vendita-a-leonessa-residence-belvedere-3",
     "rustico-in-villa-zunna-11",
     "vullabifamiliare-in-frazione-casanova-di-leonessa-65",
     "appartamento-in-vendita-a-leonessa-residence-belvedere-97",
-    "appartamento-in-vendita-a-leonessa-viadellemole-55"
+    "appartamento-in-vendita-a-leonessa-viadellemole-55",
+    "porzionevillabifamiliare-leonessa-2"
   ],
-  "pointer": 1,
-  "last_advanced_date": "2026-07-21"
+  "pointer": 2,
+  "last_advanced_date": "2026-07-22"
 }
