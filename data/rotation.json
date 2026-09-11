@@ -15,7 +15,6 @@
     "rustico-in-villa-zunna-11",
     "vullabifamiliare-in-frazione-casanova-di-leonessa-65",
     "appartamento-in-vendita-a-leonessa-panorama1",
-    "appartamento-in-vendita-a-leonessa-panorama",
     "appartamento-in-vendita-a-leonessa-i-sambuchi",
     "appartamento-in-vendita-a-leonessa-residence-belvedere-104",
     "appartamento-in-vendita-a-leonessa-residence-belvedere-97",
@@ -23,8 +22,9 @@
     "appartamento-in-vendita-a-leonessa-residence-belvedere-2",
     "indipendente-in-vendita-a-leonessa-centostorico",
     "appartamento-in-vendita-a-leonessa-centro-storico2",
-    "appartamento-in-vendita-a-leonessa-residence-belvedere"
+    "appartamento-in-vendita-a-leonessa-residence-belvedere",
+    "porzionevillabifamiliare-leonessa-2"
   ],
-  "pointer": 9,
-  "last_advanced_date": "2026-09-10"
+  "pointer": 10,
+  "last_advanced_date": "2026-09-11"
 }
